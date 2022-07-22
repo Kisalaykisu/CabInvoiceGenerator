@@ -16,4 +16,12 @@ public class CabInvoiceGenerator {
         if (fare > MIN_FARE) return fare;
         else return MIN_FARE;
     }
+
+    public double calculateFareForMultipleRides(Ride[] ridesArray) {
+        double totalFare = 0;
+        for (Ride ride : ridesArray) {
+            totalFare += calculateFare(ride.distance, ride.time);
+        }
+        return totalFare;
+    }
 }
